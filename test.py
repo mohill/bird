@@ -14,7 +14,7 @@ class FlaskTestCase(unittest.TestCase):
 		tester = app.test_client(self)
 		response = tester.get('/')
 		self.assertEqual(response.status_code, 200)
-        
+		
 	def test_all_birds(self):
 		print "-> Test: /birds, expects 200 OK"
 		tester = app.test_client(self)

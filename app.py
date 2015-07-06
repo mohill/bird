@@ -45,14 +45,14 @@ def birds_post():
 		content = request.get_json()
 		row = (content['name'], content['family'], content['continents'])
 	except (ValueError, KeyError, TypeError):
-	    # mandatory fields missing or invalid json, return 400.
-	    return "Bad request", 400
+		# mandatory fields missing or invalid json, return 400.
+		return "Bad request", 400
 
 	# checks for visible field, if not set default to false. 
 	try:
 		isinstance(content['visible'], bool)
 	except (ValueError, KeyError):
-   		visible = False
+		visible = False
 	else:
 		visible = content['visible']
 		
@@ -64,7 +64,7 @@ def birds_post():
 		visible
 	)
 
-   	# insert bird and return id to user.
+	# insert bird and return id to user.
 	try:
 		id = B.insert()
 	except:
